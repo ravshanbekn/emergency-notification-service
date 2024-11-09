@@ -26,15 +26,35 @@ repositories {
 
 dependencies {
 
+	/**
+	 * Spring boot starters
+	 */
 	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+
+	/**
+	 * Message broker
+	 */
 	implementation("org.springframework.kafka:spring-kafka")
+
+	/**
+	 * Database
+	 */
+	implementation("org.liquibase:liquibase-core")
+	runtimeOnly("org.postgresql:postgresql")
+
+	/**
+	 * Utils & Logging
+	 */
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
+
+	/**
+	 * Tests
+	 */
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
-	runtimeOnly("org.postgresql:postgresql")
 }
 
 tasks.withType<Test> {
